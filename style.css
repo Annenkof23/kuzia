@@ -35,7 +35,7 @@ body {
     background: var(--container-bg);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    padding: 18px 10px 22px 10px;
+    padding: 24px 18px 28px 18px; /* увеличен отступ по краям */
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -112,19 +112,32 @@ h3 {
     align-items: center;
     gap: 6px;
     margin-bottom: 0;
+    padding-left: 4px; /* небольшой отступ слева */
+    padding-right: 4px; /* небольшой отступ справа */
+}
+.invite-section > div {
+    display: flex;
+    width: 100%;
+    max-width: 260px;
+    align-items: stretch;
 }
 #invite-link {
     width: 100%;
-    max-width: 98%;
-    padding: 12px 14px;
-    font-size: 0.85rem;
+    max-width: none;
+    padding: 8px 10px;
+    font-size: 0.74rem;
     border: 1.5px solid #e5e5ea;
-    border-radius: var(--radius);
+    border-radius: var(--radius) 0 0 var(--radius);
     background: #f9fafb;
-    color: var(--text-main);
+    color: #6e6e73;
     outline: none;
     transition: border-color var(--transition);
-    margin-bottom: 8px;
+    margin-bottom: 0; /* убираем отступ */
+    font-family: 'SF Mono', 'SF Pro Display', 'Inter', Arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    height: 40px;
+    box-sizing: border-box;
 }
 #invite-link:focus {
     border-color: var(--primary);
@@ -134,15 +147,19 @@ h3 {
     background: var(--primary);
     color: #fff;
     border: none;
-    border-radius: 14px;
-    padding: 10px 20px;
-    font-size: 0.85rem;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 0 18px;
+    font-size: 0.74rem;
     font-weight: 600;
     cursor: pointer;
     transition: background var(--transition), box-shadow var(--transition);
     box-shadow: 0 2px 8px rgba(60,60,67,0.10);
-    margin-left: 6px;
+    margin-left: 0;
     letter-spacing: 0.01em;
+    height: 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
 }
 .copy-btn:hover {
     background: var(--primary-light);
