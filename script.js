@@ -106,7 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Списки статусов для фильтрации
         const mainStatuses = ["Создан", "Приглашен в хаб", "Активный"];
-        const applicationStatuses = ["Заявка создана", "Заявка обработана", "Выплата получена"];
+        // Исключаем 'Выплата получена' из applicationStatuses
+        const applicationStatuses = ["Заявка создана", "Заявка обработана"];
 
         // Суммируем выплаты для каждой группы
         let mainSum = 0;
@@ -141,6 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     `;
                     tableBody.appendChild(tr);
                 } else if (applicationStatuses.includes(status)) {
+                    // Исключаем из таблицы и суммы, если статус 'Выплата получена'
+                    // (этот блок теперь не выполнится для 'Выплата получена')
                     appSum += payment;
                     const tr = document.createElement("tr");
                     tr.innerHTML = `
