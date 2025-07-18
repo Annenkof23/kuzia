@@ -44,19 +44,26 @@ body {
 }
 
 h1 {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--primary);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
     text-align: center;
     margin-bottom: 8px;
-    background: transparent;
-    border-radius: 18px;
-    padding: 16px 0 10px 0;
+    background: linear-gradient(90deg, #0071e3 0%, #4aa3ff 100%);
+    border-radius: 32px;
+    padding: 22px 0 16px 0;
     position: sticky;
     top: 0;
     z-index: 10;
-    box-shadow: none;
-    letter-spacing: 0.01em;
+    box-shadow: 0 4px 24px 0 rgba(60,60,67,0.10), 0 1.5px 4px 0 rgba(60,60,67,0.13);
+    letter-spacing: 0.04em;
+    transition: box-shadow 0.3s, background 0.3s;
+    text-shadow: 0 2px 8px rgba(0,113,227,0.10);
+    user-select: none;
+}
+h1:hover {
+    box-shadow: 0 8px 32px 0 rgba(60,60,67,0.16), 0 2px 8px 0 rgba(60,60,67,0.18);
+    background: linear-gradient(90deg, #4aa3ff 0%, #0071e3 100%);
 }
 
 h3 {
@@ -244,28 +251,31 @@ tbody tr:hover {
     .container {
         max-width: 100vw;
         min-height: 100vh;
-        padding: 0 2px 8px 2px; /* уменьшено */
+        padding: 12px 8px 18px 8px; /* чуть меньше, но не впритык */
         border-radius: 0;
         box-shadow: none;
+        gap: 10px;
     }
     h1 {
-        font-size: 0.75rem; /* уменьшено */
-        padding: 6px 0 6px 0; /* уменьшено */
+        font-size: 0.85rem; /* чуть крупнее */
+        padding: 8px 0 6px 0;
         border-radius: 0 0 18px 18px;
+        margin-bottom: 6px; /* уменьшено */
     }
-    h3 {
-        font-size: 0.7rem; /* уменьшено */
+    .main-links {
+        margin-bottom: 8px; /* уменьшено */
+        gap: 8px; /* уменьшено */
     }
     .stats {
         flex-direction: row;
-        gap: 4px; /* уменьшено */
+        gap: 8px; /* увеличено */
         justify-content: center;
         align-items: stretch;
     }
     .stat-card {
-        min-width: 48px; /* уменьшено */
-        max-width: 70px; /* уменьшено */
-        padding: 2px 1px 2px 1px; /* уменьшено */
+        min-width: 80px; /* увеличено */
+        max-width: 120px; /* увеличено */
+        padding: 8px 4px 8px 4px; /* увеличено */
         margin-bottom: 0;
         display: flex;
         flex-direction: column;
@@ -273,37 +283,58 @@ tbody tr:hover {
         justify-content: center;
     }
     .stat-card h3 {
-        font-size: 0.48rem; /* уменьшено */
+        font-size: 0.7rem; /* увеличено */
     }
     .stat-card p {
-        font-size: 0.52rem; /* уменьшено */
+        font-size: 0.7rem; /* увеличено */
     }
     .invite-section {
-        gap: 2px; /* уменьшено */
+        gap: 4px;
+        padding-left: 4px; /* добавлен отступ */
+        padding-right: 4px; /* добавлен отступ */
+    }
+    .invite-section > div {
+        max-width: 100vw;
+        padding-left: 2px;
+        padding-right: 2px;
+    }
+    #invite-link {
+        border-radius: var(--radius) 0 0 var(--radius);
+        border-right: none;
+        min-width: 0;
+    }
+    .copy-btn {
+        border-radius: 0 var(--radius) var(--radius) 0;
+        margin-left: 0;
+        border-left: 1.5px solid #e5e5ea;
+    }
+    .table-section {
+        padding-left: 4px; /* добавлен отступ */
+        padding-right: 4px; /* добавлен отступ */
     }
     .table-wrapper {
-        padding-left: 1px; /* уменьшено */
-        padding-right: 1px; /* уменьшено */
+        padding-left: 4px; /* увеличен отступ */
+        padding-right: 4px; /* увеличен отступ */
     }
     #invite-link {
         max-width: 98vw;
     }
     .copy-btn {
-        font-size: 0.6rem; /* уменьшено */
-        padding: 6px 10px; /* уменьшено */
-        border-radius: 8px; /* уменьшено */
+        font-size: 0.6rem;
+        padding: 6px 10px;
+        border-radius: 8px;
     }
     .tariff-link {
-        font-size: 0.6rem; /* уменьшено */
-        padding: 4px 8px; /* уменьшено */
+        font-size: 0.6rem;
+        padding: 4px 8px;
     }
     table {
-        min-width: 180px; /* уменьшено */
-        font-size: 0.6rem; /* уменьшено */
+        min-width: 180px;
+        font-size: 0.6rem;
     }
     th, td {
-        padding: 6px 2px; /* уменьшено */
-        font-size: 0.6rem; /* уменьшено */
+        padding: 6px 2px;
+        font-size: 0.6rem;
         text-align: center;
     }
 }
@@ -322,4 +353,53 @@ tbody tr:hover {
     background: var(--accent) !important;
     color: #fff !important;
     transition: background 0.3s, color 0.3s;
+}
+
+.stats, .invite-section, .table-section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 12px rgba(60,60,67,0.07);
+    margin-bottom: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.stats {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 0;
+}
+.invite-section {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 0;
+}
+.table-section {
+    padding-left: 8px;
+    padding-right: 8px;
+    margin-top: 0;
+}
+.table-section:last-child {
+    margin-bottom: 0;
+}
+
+.icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1.6em;
+    height: 1.6em;
+    margin-bottom: 2px;
+}
+.icon-balance {
+    background: none;
+}
+.icon-income {
+    background: none;
+}
+.icon-invited {
+    background: none;
+}
+.icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
